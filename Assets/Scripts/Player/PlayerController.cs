@@ -10,15 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private MoveJoystick _movementJoystick;
     [SerializeField] private Camera _cam;
+    [SerializeField] private IntVariable _currentHp;
+    [SerializeField] private IntVariable _maxHp;
 
     [Header("Events")]
     [SerializeField] private GameEvent OnChangePlayersHealthEvent;
 
     [Header("Preview")]
-    [SerializeField] private float _playerSpeed;
+    [SerializeField] private float _playerSpeed;    
     [SerializeField] private Vector2 _mousePos;
-    public int CurrentHealth { get; private set; }
-    [SerializeField] private int _maxHealth;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private void SetInitStats()
     {
-        _maxHealth = _initStats.MaxHP;
-        CurrentHealth = _maxHealth;
+        _maxHp.Value = _initStats.MaxHP;
+        _currentHp.Value = _maxHp.Value;
         _playerSpeed = _initStats.MovementSpeed;
     }
 
@@ -78,11 +78,11 @@ public class PlayerController : MonoBehaviour
         _rb.rotation = angle;
     }
 
-    private void GetHit(int dmg)
+    public void GetHit(int dmg)
     {
-        CurrentHealth -= dmg;
+        _currentHp.Value -= dmg;
 
-        if (CurrentHealth <= 0)
+        if (_currentHp.Value <= 0)
             Die();
 
         OnChangePlayersHealthEvent.Raise();

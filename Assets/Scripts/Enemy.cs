@@ -9,12 +9,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
 
     [Header("Preview")]
-    public Transform Target;
-    public float moveSpeed = 1f;
-    private Vector2 movement;
+    [SerializeField] private Transform _target;
+    [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private Vector2 movement;
     public int health = 100;
     private const float MAX_HEALTH = 1000;
-    public int score_val = 1;
+    [SerializeField] private int _scoreValue = 1;
     public static int score = 0;
     public GameObject Score;
     private Image healthBar;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        
+        _target = FindObjectOfType<PlayerController>().transform;
     }
 
     // Update is called once per frame
@@ -39,13 +39,13 @@ public class Enemy : MonoBehaviour
 
     private void TryMoveTowardsTarget()
     {
-        if (Target == null)
+        if (_target == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        Vector3 direction = Target.position - transform.position;
+        Vector3 direction = _target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         _rb.rotation = angle + 280;
         direction.Normalize();
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
 
 
     void MoveCharacter(Vector2 direction) {
-        _rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+        _rb.MovePosition((Vector2)transform.position + (direction * _moveSpeed * Time.deltaTime));
     }
 
     public void TakeDamage(int damage)
@@ -63,15 +63,10 @@ public class Enemy : MonoBehaviour
         healthBar = GameObject.Find("BossHealth").GetComponent<Image>();
         health -= damage;
 
-        //bossHealthBar.GetComponent<Image>().enabled = true;
-        //bossHealthBar.GetComponent<Image>().fillAmount = cur_health / health;
         if (gameObject.tag == "Boss")
         {
             healthBar.fillAmount = health / MAX_HEALTH;
         }
-        
-        
-        //bossHealthBar.fillAmount ;
 
         if (health <= 0)
         {
@@ -81,20 +76,11 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        //ExampleNPC.GetComponent<Animator>().Play("Zombie_death");
         Text myText;
         myText = GameObject.Find("Score").GetComponent<Text>();
-        score += score_val;
+        score += _scoreValue;
 
         myText.text = score.ToString() + " Points";
         Destroy(gameObject);
     }
-
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Wall"))
-    //     {
-    //         this.transform.Rotate(transform.rotation.x, transform.rotation.y, transform.rotation.z - 90);
-    //     }
-    // }
 }

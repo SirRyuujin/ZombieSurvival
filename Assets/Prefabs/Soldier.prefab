@@ -438,14 +438,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adabb7fdb1afa84eb0b48199ecdf25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initStats: {fileID: 11400000, guid: 863741d461569f54e91dafed2f3bd4c7, type: 2}
   _lookJoystick: {fileID: 0}
   _rb: {fileID: 5356894109381004182}
   _movementJoystick: {fileID: 0}
   _cam: {fileID: 0}
+  _currentHp: {fileID: 11400000, guid: 32625a2e56869c84993beb2f2a31fd51, type: 2}
+  _maxHp: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
+  OnChangePlayersHealthEvent: {fileID: 11400000, guid: e9e452b5e8e6a3c4fac8451d838a598d, type: 2}
   _playerSpeed: 2
   _mousePos: {x: 0, y: 0}
-  _currentHealth: 0
-  _maxHealth: 0
 --- !u!50 &5356894109381004182
 Rigidbody2D:
   serializedVersion: 4
