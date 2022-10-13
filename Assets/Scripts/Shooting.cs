@@ -15,12 +15,17 @@ public class Shooting : MonoBehaviour
     private ReloadManually can_shoot;
 
     public float bulletForce = 5f;
+    Text myText;
+
+    private void Start()
+    { 
+        myText = GameObject.Find("Ammo").GetComponent<Text>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Text myText;
-        myText = GameObject.Find("Ammo").GetComponent<Text>();
+        
 
         if(Input.GetButtonDown("Fire1"))
         {

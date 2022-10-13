@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         if (_target != null)
             _targetTransform = _target.transform;
 
-        SetInitStats();
+        SetInitStats(); 
     }
 
     private void Update()

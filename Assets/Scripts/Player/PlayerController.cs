@@ -90,7 +90,6 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("I Just Died");
         OnPlayerDieEvent.Raise();
     }
 }
