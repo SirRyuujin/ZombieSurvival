@@ -9,6 +9,11 @@ public class ScoreUIController : MonoBehaviour
     public IntVariable Score;
     public TextMeshProUGUI CounterText;
 
+    void FixedUpdate()
+    {
+        UpdateCounterText();
+    }
+
     public void UpdateCounterText()
     {
         CounterText.text = Score.Value.ToString();
