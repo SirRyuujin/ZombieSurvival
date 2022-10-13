@@ -9,6 +9,6 @@ public class GameOverController : MonoBehaviour
     public void GameOver()
     {
         GameOverOverlay.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 }
