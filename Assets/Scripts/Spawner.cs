@@ -3,50 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// object pooling?
+// mergin all spawners into one object?
 public class Spawner : MonoBehaviour
 {
-      public GameObject enemy;                // The prefab to be spawned.
-      public float spawnTime = 3f;            // How long between each spawn.
-      public Vector3 spawnPosition;
-      public GameOverScreen GameOverScreen;
-      private static int gameOver = 0;
-      
-     public void GameOver() 
-     {
-        gameOver = 1;
-        GameOverScreen.Setup();
-     }
- 
-     // Use this for initialization
-     void Start () 
-     {
-        //  QualitySettings.vSyncCount = 0;
-        // Application.targetFrameRate = 60;
-         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-         
-         
-         InvokeRepeating ("Spawn", spawnTime, spawnTime);
-     }
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private FloatVariable _spawnInterval;
+    [SerializeField] private FloatVariable _initialSpawnDelay;
+    [SerializeField] private Camera _cam;
 
-     void Update()
-     {
-         
-     }
- 
-     void Spawn ()
-     {
-        if (gameOver == 0)
-        {
-            spawnPosition.x = Random.Range (0, 15);
-            spawnPosition.y = 0.5f;
-            spawnPosition.z = Random.Range (0, 15);
-    
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+    private void Start()
+    {
+        // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.         
+        InvokeRepeating("Spawn", _initialSpawnDelay.Value, _spawnInterval.Value);
+    }
 
-            
-        } 
-         
-     }
+    private void Spawn()
+    {
+        // set spawn position based on player's position
+        Vector3 spawnPosition = GetValidSpawnPoint();
 
-     
+        Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    private Vector3 GetValidSpawnPoint()
+    {
+        // 1. Distance between cam viewport and world boundries
+        // if > 0 => spawn enemy
+        // else
+        // check on other sides | spawn in cam view
+
+        // 2. Set spawn points
+
+        return _cam.ViewportToWorldPoint(new Vector3(1.1f, 0.5f, 10));
+    }
 }

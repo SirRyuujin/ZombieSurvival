@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyBaseStats _baseStats;
 
     [Header("Preview")]
-    [SerializeField] private Transform _targetTransform;
+    [SerializeField] private Transform _targetTransform; // SO reference?
     [SerializeField] private PlayerController _target;
     [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private int _currentHp;
@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour
 
     private void TryAttack()
     {
+        //Debug.DrawLine(_targetTransform.position, transform.position);
+        //Debug.Log(Vector2.Distance(_targetTransform.position, transform.position));
         if (_timeLeftToAttack == 0 && Vector2.Distance(_targetTransform.position, transform.position) <= _attackRange)
         {
             _target.GetHit(Damage); // event based?

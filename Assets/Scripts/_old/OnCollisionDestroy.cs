@@ -22,7 +22,7 @@ public class OnCollisionDestroy : MonoBehaviour
            if(health == 0)
            {
             Destroy(player);
-            gameController.GameOver();
+//            gameController.GameOver();
            } 
       }
     }

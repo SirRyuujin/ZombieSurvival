@@ -43,12 +43,12 @@ public class SpawnBoss : MonoBehaviour
         //}
     }
 
-    public void SpawnBossFunc()
-     {
-         spawner.spawnPosition.x = Random.Range (0, 15);
-         spawner.spawnPosition.y = 0.5f;
-         spawner.spawnPosition.z = Random.Range (0, 15);
+    //public void SpawnBossFunc()
+    // {
+    //     spawner.spawnPosition.x = Random.Range (0, 15);
+    //     spawner.spawnPosition.y = 0.5f;
+    //     spawner.spawnPosition.z = Random.Range (0, 15);
 
-         Instantiate(boss, spawner.spawnPosition, Quaternion.identity);
-     }
+    //     Instantiate(boss, spawner.spawnPosition, Quaternion.identity);
+    // }
 }

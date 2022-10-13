@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfbf01d26868544e9d2858639e91da9, type: 3}
   m_Name: Normal Zombie Stats
   m_EditorClassIdentifier: 
-  MovementSpeed: 1.5
+  MovementSpeed: 3
   MaxHP: 100
   Score: 1
   Damage: 5
   AttackCooldown: 1.5
-  AttackRange: 0.5
+  AttackRange: 0.95
