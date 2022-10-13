@@ -100,12 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2ac9f8ca0448e41973dc4458a14f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  OnEnemyDieEvent: {fileID: 11400000, guid: 60ed7205bc0b75646b2ceda4fbc1dd18, type: 2}
+  OnNormalZombieDieEvent: {fileID: 0}
   _rb: {fileID: 2518987641265870764}
-  moveSpeed: 3
+  _normalZobieScoreValue: {fileID: 0}
+  _target: {fileID: 0}
+  _moveSpeed: 1
+  movement: {x: 0, y: 0}
   health: 300
-  score_val: 3
-  Score: {fileID: 0}
 --- !u!95 &2518987641265870771
 Animator:
   serializedVersion: 4

@@ -27,20 +27,20 @@ public class SpawnBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemy.score == 1 && noBoss == true)
-            {
-               noBoss = false;
-               SpawnBossFunc();
-               bossHealthBar.enabled = true;
-               bossHealthBarBG.enabled = true;
-               Skull.enabled = true;
-            }
-        if (bossHealthBar.fillAmount == 0)
-        {
-            bossHealthBar.enabled = false;
-            bossHealthBarBG.enabled = false;
-            Skull.enabled = false; 
-        }
+        //if (Enemy.score == 1 && noBoss == true)
+        //    {
+        //       noBoss = false;
+        //       SpawnBossFunc();
+        //       bossHealthBar.enabled = true;
+        //       bossHealthBarBG.enabled = true;
+        //       Skull.enabled = true;
+        //    }
+        //if (bossHealthBar.fillAmount == 0)
+        //{
+        //    bossHealthBar.enabled = false;
+        //    bossHealthBarBG.enabled = false;
+        //    Skull.enabled = false; 
+        //}
     }
 
     public void SpawnBossFunc()

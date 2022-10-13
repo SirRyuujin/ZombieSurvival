@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private GameEvent OnChangePlayersHealthEvent;
+    [SerializeField] private GameEvent OnPlayerDieEvent;
 
     [Header("Preview")]
     [SerializeField] private float _playerSpeed;    
@@ -25,8 +26,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")) 
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            // get enemy dmg
-            GetHit(1);
+            GetHit(enemy.Damage);
         }
     }
 
@@ -91,5 +91,6 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("I Just Died");
+        OnPlayerDieEvent.Raise();
     }
 }
