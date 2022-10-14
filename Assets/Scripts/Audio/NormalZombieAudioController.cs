@@ -10,7 +10,7 @@ public class NormalZombieAudioController : MonoBehaviour
 
     public void PlayAttackClip()
     {
-        if (AttackSource.isPlaying)
+        if (!AttackSource.isPlaying)
         {
             AttackSource.clip = Attacks[Random.Range(0, Attacks.Length)];
             AttackSource.Play();
