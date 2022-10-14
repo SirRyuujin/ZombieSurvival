@@ -10,19 +10,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameEvent OnNormalZombieDieEvent;
 
     [Header("References")]
-    [SerializeField] private Rigidbody2D _rb;
+    public Rigidbody2D Rb;
     [SerializeField] private EnemyBaseStats _baseStats;
 
     [Header("Preview")]
-    [SerializeField] private Transform _targetTransform; // SO reference?
+    public Transform TargetTransform; // SO reference?
     [SerializeField] private PlayerController _target;
-    [SerializeField] private float _moveSpeed = 1f;
+    public float MoveSpeed = 1f;
     [SerializeField] private int _currentHp;
+    [SerializeField] private float _timeLeftToAttack = 0;
     public int Damage { get; private set; }
 
     private int _maxHp;
     private float _attackCooldown;
-    [SerializeField] private float _timeLeftToAttack = 0;
     private float _attackRange;
     private Vector2 _movement;
 
@@ -30,28 +30,21 @@ public class Enemy : MonoBehaviour
     {
         _target = FindObjectOfType<PlayerController>();
         if (_target != null)
-            _targetTransform = _target.transform;
+            TargetTransform = _target.transform;
 
-        SetInitStats(); 
+        SetInitStats();
     }
 
     private void Update()
     {
-        TryMoveTowardsTarget();
-
         TryAttack();
-    }
-
-    private void FixedUpdate()
-    {
-        MoveCharacter(_movement);
     }
 
     private void TryAttack()
     {
         //Debug.DrawLine(_targetTransform.position, transform.position);
         //Debug.Log(Vector2.Distance(_targetTransform.position, transform.position));
-        if (_timeLeftToAttack == 0 && Vector2.Distance(_targetTransform.position, transform.position) <= _attackRange)
+        if (_timeLeftToAttack == 0 && Vector2.Distance(TargetTransform.position, transform.position) <= _attackRange)
         {
             _target.GetHit(Damage); // event based?
             StartCoroutine(ResetAttackTimerCoroutine());
@@ -82,7 +75,7 @@ public class Enemy : MonoBehaviour
     {
         _maxHp = _baseStats.MaxHP;
         _currentHp = _maxHp;
-        _moveSpeed = _baseStats.MovementSpeed;
+        MoveSpeed = _baseStats.MovementSpeed;
         _attackCooldown = _baseStats.AttackCooldown;
         _attackRange = _baseStats.AttackRange;
         Damage = _baseStats.Damage;
@@ -90,22 +83,22 @@ public class Enemy : MonoBehaviour
 
     private void TryMoveTowardsTarget()
     {
-        if (_targetTransform == null)
+        if (TargetTransform == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        Vector3 direction = _targetTransform.position - transform.position;
+        Vector3 direction = TargetTransform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        _rb.rotation = angle + 280;
+        Rb.rotation = angle + 280;
         direction.Normalize();
         _movement = direction;
     }
 
     private void MoveCharacter(Vector2 direction)
     {
-        _rb.MovePosition((Vector2)transform.position + (direction * _moveSpeed * Time.deltaTime));
+        Rb.MovePosition((Vector2)transform.position + (direction * MoveSpeed * Time.deltaTime));
     }
   
     private void Die()

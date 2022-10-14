@@ -446,7 +446,7 @@ MonoBehaviour:
   _currentHp: {fileID: 11400000, guid: 32625a2e56869c84993beb2f2a31fd51, type: 2}
   _maxHp: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
   OnChangePlayersHealthEvent: {fileID: 11400000, guid: e9e452b5e8e6a3c4fac8451d838a598d, type: 2}
-  OnPlayerDieEvent: {fileID: 11400000, guid: e9e452b5e8e6a3c4fac8451d838a598d, type: 2}
+  OnPlayerDieEvent: {fileID: 11400000, guid: 9b73176bbd94f964d859ccb030b8e045, type: 2}
   _playerSpeed: 2
   _mousePos: {x: 0, y: 0}
 --- !u!50 &5356894109381004182
@@ -462,8 +462,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 25
-  m_LinearDrag: 0
-  m_AngularDrag: 3
+  m_LinearDrag: 1
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

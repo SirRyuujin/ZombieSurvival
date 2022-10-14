@@ -21,15 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _playerSpeed;    
     [SerializeField] private Vector2 _mousePos;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy")) 
-        {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            GetHit(enemy.Damage);
-        }
-    }
-
     private void Awake()
     {
         SetInitStats();

@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 758419779827678426}
   - component: {fileID: 758419779827678424}
   - component: {fileID: 758419779827678425}
-  - component: {fileID: 758419779827678428}
   - component: {fileID: 758419779827678429}
+  - component: {fileID: 5819297006237073366}
+  - component: {fileID: 7715853979762359066}
+  - component: {fileID: 4534899708579783282}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758419779827678407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6834, y: -4.356, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,11 +104,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnemyDieEvent: {fileID: 11400000, guid: 60ed7205bc0b75646b2ceda4fbc1dd18, type: 2}
   OnNormalZombieDieEvent: {fileID: 11400000, guid: 77c233d041f1ccd4db1aa90b281ba817, type: 2}
-  _rb: {fileID: 758419779827678425}
+  Rb: {fileID: 758419779827678425}
   _baseStats: {fileID: 11400000, guid: 1d19e9949e700bf4098ac098cf6cd5f6, type: 2}
-  _targetTransform: {fileID: 0}
+  TargetTransform: {fileID: 0}
   _target: {fileID: 0}
-  _moveSpeed: 0
+  MoveSpeed: 1
   _currentHp: 0
   _timeLeftToAttack: 0
 --- !u!50 &758419779827678425
@@ -122,7 +124,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -130,32 +132,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &758419779827678428
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758419779827678407}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.02728501, y: -0.070444524}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.64}
-    newSize: {x: 1.2803125, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5081454, y: 0.48699033}
-  m_EdgeRadius: 0
 --- !u!95 &758419779827678429
 Animator:
   serializedVersion: 4
@@ -176,3 +152,65 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5819297006237073366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758419779827678407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &7715853979762359066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758419779827678407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f578e2cf20b464f8930c1d6ac72e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextWaypointDistance: 3
+  CurrentWaypoint: 0
+  ReachedEndOfPath: 0
+  Seeker: {fileID: 5819297006237073366}
+  Enemy: {fileID: 758419779827678424}
+  Rb: {fileID: 758419779827678425}
+--- !u!58 &4534899708579783282
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758419779827678407}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: 0.03}
+  serializedVersion: 2
+  m_Radius: 0.32
