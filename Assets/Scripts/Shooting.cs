@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
+    public GameEvent OnReloadPrimaryWeaponEvent;
+    public GameEvent OnFirePrimaryWeaponEvent;
+
+    private float _fireRate = 2; // shots per second
+    private float _convertedFireRate;
+    private float _currentFireTimer = 0;
+    private bool _isReloading = false;
+
     public Transform firePoint;
     public GameObject bulletPrefab;
     public static int max_ammo = 30;
@@ -20,55 +28,57 @@ public class Shooting : MonoBehaviour
     private void Start()
     { 
         myText = GameObject.Find("Ammo").GetComponent<Text>();
+        _convertedFireRate = 1 / _fireRate;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-
         if(Input.GetButtonDown("Fire1"))
         {
-            if (ammo > 0 && ReloadManually.can_shoot == true)
+            if (ammo > 0 && _currentFireTimer == _convertedFireRate && ReloadManually.can_shoot == true)
             {
                 Shoot();
                 ammo -= 1;
                 myText.text = "Ammo: " + ammo.ToString() + "/" + max_ammo;
             }
-            else if(ammo <= 0)
+            else if(ammo <= 0 && !_isReloading)
             { 
                 Reload();
-            }
-            
-            
+            }    
         }
+
+        if (_currentFireTimer < _convertedFireRate)
+            _currentFireTimer += Time.deltaTime;
+        else
+            _currentFireTimer = _convertedFireRate;
     }
 
-    void Shoot()
+    private void Shoot()
     {
+        OnFirePrimaryWeaponEvent.Raise();
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-
     }
 
     public void Reload()
     {
+        _isReloading = true;
         reloadingCircle.enabled = true;
         reloadingCircleProgress.enabled = true;
         Text myText;
         myText = GameObject.Find("Ammo").GetComponent<Text>();
-        
-    
+        OnReloadPrimaryWeaponEvent.Raise();
+
         // reloadingCircle.enabled = false;
         // reloadingCircleProgress.enabled = false;
         // ammo = max_ammo;
         // myText.text = "Ammo: " + ammo.ToString() + "/" + max_ammo;
-                
+
         Invoke("ExecuteAfterTime", 2.5f);
     }
 
-    void ExecuteAfterTime()
+    private void ExecuteAfterTime()
     {
         Text myText;
         myText = GameObject.Find("Ammo").GetComponent<Text>();
@@ -77,6 +87,7 @@ public class Shooting : MonoBehaviour
         reloadingCircleProgress.enabled = false;
         ammo = max_ammo;
         myText.text = "Ammo: " + ammo.ToString() + "/" + max_ammo;
-    
+
+        _isReloading = false;
     }
 }

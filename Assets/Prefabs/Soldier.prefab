@@ -484,6 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de98ade3070789745928e26e5a60bed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnReloadPrimaryWeaponEvent: {fileID: 11400000, guid: f367357849c5d984a87252850299fd72, type: 2}
+  OnFirePrimaryWeaponEvent: {fileID: 11400000, guid: ffbedf8fd9370434984d8136ccf6cfdf, type: 2}
   firePoint: {fileID: 5356894109045329592}
   bulletPrefab: {fileID: 2816155164649127127, guid: 9070995002dac4048809ab1db02f16de, type: 3}
   reloadingCircle: {fileID: 0}

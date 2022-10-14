@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Account for different weapons => refactor
 public class PlayerAudioController : MonoBehaviour
 {
     public AudioClip[] Footsteps;
@@ -25,12 +26,32 @@ public class PlayerAudioController : MonoBehaviour
 
     public void PlayFiringClip()
     {
-
+        //if (!FireSource.isPlaying)
+        //{
+        //    FireSource.clip = Fire[Random.Range(0, Fire.Length)];
+        //    FireSource.Play();
+        //}
+        FireSource.Play();
     }
     
     public void PlayReloadClip()
     {
+        StartCoroutine(PlayReloadSequenceCoroutine());
+    }
 
+    private IEnumerator PlayReloadSequenceCoroutine()
+    {
+        yield return StartCoroutine(PlayReloadClipsCoroutine(0));
+        yield return StartCoroutine(PlayReloadClipsCoroutine(1));
+        yield return StartCoroutine(PlayReloadClipsCoroutine(2));
+    }
+
+    private IEnumerator PlayReloadClipsCoroutine(int clipID)
+    {
+        ReloadSource.clip = Reload[clipID];
+        ReloadSource.Play();
+        while (ReloadSource.isPlaying)
+            yield return null;
     }
 
     public void PlayGetHitEvent()
