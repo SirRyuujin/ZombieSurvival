@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private GameEvent OnChangePlayersHealthEvent;
+    [SerializeField] private GameEvent OnPlayerGetHitEvent;
     [SerializeField] private GameEvent OnPlayerDieEvent;
+    [SerializeField] private GameEvent OnPlayerMoveEvent;
 
     [Header("Preview")]
     [SerializeField] private float _playerSpeed;    
@@ -44,15 +46,20 @@ public class PlayerController : MonoBehaviour
     private void HandlePlayerCamera()
     {
         if (_lookJoystick.joystickVec.y != 0)
+        {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, _lookJoystick.joystickVec);
+        }
         else
             _rb.velocity = Vector2.zero;
     }
 
     private void HandlePlayerMovement()
     {
-        if (_movementJoystick.joystickVecMove.y != 0)
+        if (Mathf.Abs(_movementJoystick.joystickVecMove.y) >= 0.05f)
+        {
+            OnPlayerMoveEvent.Raise();
             _rb.velocity = new Vector2(_movementJoystick.joystickVecMove.x * _playerSpeed, _movementJoystick.joystickVecMove.y * _playerSpeed);
+        }
         else
             _rb.velocity = Vector2.zero;
     }
@@ -76,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (_currentHp.Value <= 0)
             Die();
 
+        OnPlayerGetHitEvent.Raise();
         OnChangePlayersHealthEvent.Raise();
     }
 

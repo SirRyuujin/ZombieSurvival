@@ -446,7 +446,9 @@ MonoBehaviour:
   _currentHp: {fileID: 11400000, guid: 32625a2e56869c84993beb2f2a31fd51, type: 2}
   _maxHp: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
   OnChangePlayersHealthEvent: {fileID: 11400000, guid: e9e452b5e8e6a3c4fac8451d838a598d, type: 2}
+  OnPlayerGetHitEvent: {fileID: 11400000, guid: f74f0bbe7cf91104fae7a2d1957daff9, type: 2}
   OnPlayerDieEvent: {fileID: 11400000, guid: 9b73176bbd94f964d859ccb030b8e045, type: 2}
+  OnPlayerMoveEvent: {fileID: 11400000, guid: 35c951a0c9738ed4287857e20a02eb10, type: 2}
   _playerSpeed: 2
   _mousePos: {x: 0, y: 0}
 --- !u!50 &5356894109381004182

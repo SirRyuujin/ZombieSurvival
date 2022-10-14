@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5819297006237073366}
   - component: {fileID: 7715853979762359066}
   - component: {fileID: 4534899708579783282}
+  - component: {fileID: 6501318899815003212}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -104,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnemyDieEvent: {fileID: 11400000, guid: 60ed7205bc0b75646b2ceda4fbc1dd18, type: 2}
   OnNormalZombieDieEvent: {fileID: 11400000, guid: 77c233d041f1ccd4db1aa90b281ba817, type: 2}
+  OnNormalZombieAttackEvent: {fileID: 11400000, guid: 0aa86456c2a283547943ac5b5821d601, type: 2}
   Rb: {fileID: 758419779827678425}
   _baseStats: {fileID: 11400000, guid: 1d19e9949e700bf4098ac098cf6cd5f6, type: 2}
   TargetTransform: {fileID: 0}
@@ -111,6 +113,18 @@ MonoBehaviour:
   MoveSpeed: 1
   _currentHp: 0
   _timeLeftToAttack: 0
+  IdleSource: {fileID: 6501318899815003212}
+  IdleClips:
+  - {fileID: 8300000, guid: 9e4eeef417f9e4847876a66bcdf253ef, type: 3}
+  - {fileID: 8300000, guid: 69ff30b4db2a27a45a2ac9571cf194d4, type: 3}
+  - {fileID: 8300000, guid: 7880b3ff243a9c245b304f07ebd6994a, type: 3}
+  - {fileID: 8300000, guid: 1e6b44b9bd04e3543ac1fb3542f1a064, type: 3}
+  - {fileID: 8300000, guid: 5c4b09d41716b9d4584aff5a3b7904f2, type: 3}
+  - {fileID: 8300000, guid: 342429b63c43b1d47b2f0c1e048ff10c, type: 3}
+  - {fileID: 8300000, guid: c7c5322557c5c3a4aa70e17f39d10ce0, type: 3}
+  - {fileID: 8300000, guid: ff6fb496117f41145914285007dcfdb1, type: 3}
+  - {fileID: 8300000, guid: 4a82e9c5e3767e945916edc493cc716c, type: 3}
+  - {fileID: 8300000, guid: 446e9937151e00740aa8813209ecbfed, type: 3}
 --- !u!50 &758419779827678425
 Rigidbody2D:
   serializedVersion: 4
@@ -214,3 +228,99 @@ CircleCollider2D:
   m_Offset: {x: -0.03, y: 0.03}
   serializedVersion: 2
   m_Radius: 0.32
+--- !u!82 &6501318899815003212
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758419779827678407}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9e4eeef417f9e4847876a66bcdf253ef, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.055555556
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
