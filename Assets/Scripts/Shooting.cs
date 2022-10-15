@@ -26,7 +26,7 @@ public class Shooting : MonoBehaviour
 
     private void Awake()
     {
-        _currentAmmo = _maxAmmo;
+        _currentAmmo.Value = _maxAmmo.Value;
         _convertedFireRate = 1 / _fireRate.Value;
     }
 
@@ -36,7 +36,7 @@ public class Shooting : MonoBehaviour
         {
             if (_currentAmmo.Value > 0 && _currentFireTimer == _convertedFireRate)
                 Shoot();
-            else
+            else if (_currentAmmo.Value <= 0)
                 TryReload();
         }
 
@@ -45,13 +45,16 @@ public class Shooting : MonoBehaviour
 
     public void TryReload()
     {
-        if (_currentAmmo.Value <= 0 && !_isReloading)
-        {
-            _isReloading = true;
-            OnReloadPrimaryWeaponEvent.Raise();
+        if (!_isReloading)
+            Reload();
+    }
 
-            Invoke("FinishReload", _reloadTime.Value);
-        }
+    private void Reload()
+    {
+        _isReloading = true;
+        OnReloadPrimaryWeaponEvent.Raise();
+
+        Invoke("FinishReload", _reloadTime.Value);
     }
 
     private void UpdateFireTimer()
@@ -73,7 +76,7 @@ public class Shooting : MonoBehaviour
 
     private void FinishReload()
     {
-        _currentAmmo = _maxAmmo;
+        _currentAmmo.Value = _maxAmmo.Value;
 
         _isReloading = false;
         OnFinishPrimaryWeaponReloadEvent.Raise();

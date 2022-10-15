@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 587410806}
   - component: {fileID: 587410807}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: BulletSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   _fireRate: {fileID: 11400000, guid: aa72dd57bd45d4a43a9c55b12304e3fb, type: 2}
   _reloadTime: {fileID: 11400000, guid: e0d6b6e3407c7a34d92b6dd4576e5b33, type: 2}
   firePoint: {fileID: 5356894109045329592}
-  bulletPrefab: {fileID: 587410805}
+  bulletPrefab: {fileID: 3637152904627691746, guid: b6fcfa8f747f0cf43931879b65840f11, type: 3}
   bulletForce: 20
 --- !u!114 &8271734926016981424
 MonoBehaviour:

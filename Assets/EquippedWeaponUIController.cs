@@ -18,6 +18,11 @@ public class EquippedWeaponUIController : MonoBehaviour
     public RectTransform ReloadCircleRectTransform;
     public float RotationSpeed = 200f;
 
+    private void Start()
+    {
+        UpdateAmmoCounter();
+    }
+
     public void UpdateAmmoCounter()
     {
         AmmoCounterText.text = string.Format("{0}/{1}", CurrentAmmo.Value.ToString(), MaxAmmo.Value.ToString());
@@ -26,7 +31,7 @@ public class EquippedWeaponUIController : MonoBehaviour
     public void StartReloadAnimation()
     {
         ReloadCircle.enabled = true;
-        ReloadCircle.enabled = true;
+        ReloadCircleProgress.enabled = true;
         StartCoroutine(RotationAnimationCoroutine());
     }
 
@@ -46,6 +51,6 @@ public class EquippedWeaponUIController : MonoBehaviour
     private void FinishReloadAnimation()
     {
         ReloadCircle.enabled = false;
-        ReloadCircle.enabled = false;
+        ReloadCircleProgress.enabled = false;
     }
 }
