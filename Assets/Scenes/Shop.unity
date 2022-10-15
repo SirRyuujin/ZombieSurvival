@@ -866,6 +866,8 @@ GameObject:
   - component: {fileID: 460045392}
   - component: {fileID: 460045391}
   - component: {fileID: 460045390}
+  - component: {fileID: 460045393}
+  - component: {fileID: 460045394}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -938,7 +940,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 460045391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 460045393}
+        m_TargetAssemblyTypeName: HealthUpgrade, Assembly-CSharp
+        m_MethodName: UpgradeMaxHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &460045391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,6 +991,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460045388}
   m_CullTransparentMesh: 1
+--- !u!114 &460045393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460045388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8ec0bf426215445a0ef43c3513e49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyUpgrade: {fileID: 460045394}
+  PlayerHealth: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
+--- !u!114 &460045394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460045388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b8b20a759507746b80c937f1dc2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentScore: {fileID: 11400000, guid: 1d8a0a41dc0c11e45b95ff5c152ae879, type: 2}
+  Price: {fileID: 11400000, guid: f3ccfb4e33da4344bb298edebe7135ec, type: 2}
 --- !u!224 &528557031 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6362265404223962927, guid: c69c276e53d5f974390d27da3105b18a, type: 3}
