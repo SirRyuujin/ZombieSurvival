@@ -6,4 +6,6 @@ using UnityEngine;
 public class FloatVariable : ScriptableObject
 {
     public float Value;
+
+    private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
 }
