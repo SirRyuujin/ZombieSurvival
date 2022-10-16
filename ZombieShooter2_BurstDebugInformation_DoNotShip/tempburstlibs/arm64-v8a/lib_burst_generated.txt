@@ -1,7 +1,7 @@
 Library: lib_burst_generated
 --platform=Android
 --backend=burst-llvm-12
---target=ARMV7A_NEON32
+--target=ARMV8A_AARCH64
 --global-safety-checks-setting=Off
 --dump=Function
 --float-precision=Standard
@@ -137,7 +137,7 @@ Library: lib_burst_generated
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=UNITY_ANALYTICS
 --generate-link-xml=Temp\burst.link.xml
---output=C:\Users\admin\Documents\GitHub\ZombieSurvival\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
+--output=C:\Users\admin\Documents\GitHub\ZombieSurvival\Temp\StagingArea\tempburstlibs\arm64-v8a\lib_burst_generated
 --root-assembly=C:\Users\admin\Documents\GitHub\ZombieSurvival\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=C:\Users\admin\Documents\GitHub\ZombieSurvival\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
 --root-assembly=C:\Users\admin\Documents\GitHub\ZombieSurvival\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll
