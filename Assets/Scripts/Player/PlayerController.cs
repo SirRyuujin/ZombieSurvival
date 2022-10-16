@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         HandlePlayerCamera();
         HandlePlayerMovement();
-        CalculateShootDirection();
+  //      CalculateShootDirection();
         CalculateMousePosition();
     }
 
