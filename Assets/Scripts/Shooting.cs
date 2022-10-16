@@ -34,10 +34,7 @@ public class Shooting : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if (_currentAmmo.Value > 0 && _currentFireTimer == _convertedFireRate)
-                Shoot();
-            else if (_currentAmmo.Value <= 0)
-                TryReload();
+            TryShoot();
         }
 
         UpdateFireTimer();
@@ -65,9 +62,18 @@ public class Shooting : MonoBehaviour
             _currentFireTimer = _convertedFireRate;
     }
 
+    public void TryShoot()
+    {
+        if (_currentAmmo.Value > 0 && _currentFireTimer == _convertedFireRate)
+            Shoot();
+        else if (_currentAmmo.Value <= 0)
+            TryReload();
+    }
+
     private void Shoot()
     {
         _currentAmmo.Value -= 1;
+        _currentFireTimer = 0;
         OnFirePrimaryWeaponEvent.Raise();
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

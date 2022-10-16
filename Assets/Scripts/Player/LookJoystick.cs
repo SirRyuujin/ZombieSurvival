@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class LookJoystick : MonoBehaviour
 {
+    public GameEvent OnTryFirePrimaryWeaponEvent;
 
     public GameObject joystick;
     public GameObject joystickBG;
@@ -13,8 +14,7 @@ public class LookJoystick : MonoBehaviour
     private Vector2 joystickOriginalPos;
     private float joystickRadius;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         joystickOriginalPos = joystickBG.transform.position;
         joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.y / 2.5f;
@@ -39,11 +39,13 @@ public class LookJoystick : MonoBehaviour
         {
             joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
         }
-
         else
         {
             joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
         }
+
+        if (joystickDist >= joystickRadius)
+            OnTryFirePrimaryWeaponEvent.Raise();
     }
 
     public void PointerUp()

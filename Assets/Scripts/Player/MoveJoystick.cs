@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class MoveJoystick : MonoBehaviour
 {
-
     public GameObject joystickMove;
     public GameObject joystickBGMove;
     public Vector2 joystickVecMove;
@@ -17,7 +16,7 @@ public class MoveJoystick : MonoBehaviour
     void Start()
     {
         joystickOriginalPosMove = joystickBGMove.transform.position;
-        joystickRadiusMove = joystickBGMove.GetComponent<RectTransform>().sizeDelta.y / 2.5f;
+        joystickRadiusMove = joystickBGMove.GetComponent<RectTransform>().sizeDelta.y / 4f;
     }
 
     public void PointerDown()
@@ -39,7 +38,6 @@ public class MoveJoystick : MonoBehaviour
         {
             joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickDistMove;
         }
-
         else
         {
             joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickRadiusMove;
