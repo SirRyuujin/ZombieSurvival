@@ -64,7 +64,7 @@ public class Shooting : MonoBehaviour
 
     public void TryShoot()
     {
-        if (_currentAmmo.Value > 0 && _currentFireTimer == _convertedFireRate)
+        if (_currentAmmo.Value > 0 && _currentFireTimer == _convertedFireRate && !_isReloading)
             Shoot();
         else if (_currentAmmo.Value <= 0)
             TryReload();
