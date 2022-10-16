@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class LookJoystick : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LookJoystick : MonoBehaviour
 
     public GameObject joystick;
     public GameObject joystickBG;
+    public Image JoystickImage;
+    public Image JoystickBgImage;
     public Vector2 joystickVec;
     private Vector2 joystickTouchPos;
     private Vector2 joystickOriginalPos;
@@ -22,6 +25,9 @@ public class LookJoystick : MonoBehaviour
 
     public void PointerDown()
     {
+        JoystickImage.enabled = true;
+        JoystickBgImage.enabled = true;
+
         joystick.transform.position = Input.mousePosition;
         joystickBG.transform.position = Input.mousePosition;
         joystickTouchPos = Input.mousePosition;
@@ -53,6 +59,8 @@ public class LookJoystick : MonoBehaviour
         joystickVec = Vector2.zero;
         joystick.transform.position = joystickOriginalPos;
         joystickBG.transform.position = joystickOriginalPos;
-    }
 
+        JoystickImage.enabled = false;
+        JoystickBgImage.enabled = false;
+    }
 }
