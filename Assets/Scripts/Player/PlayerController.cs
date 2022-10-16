@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (_lookJoystick.joystickVec.y != 0)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, _lookJoystick.joystickVec);
+            transform.rotation *= Quaternion.Euler(0, 0, 90);
         }
         else
             _rb.velocity = Vector2.zero;

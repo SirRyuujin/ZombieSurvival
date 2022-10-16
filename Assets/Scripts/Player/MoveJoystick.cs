@@ -27,7 +27,7 @@ public class MoveJoystick : MonoBehaviour
         JoystickImage.enabled = true;
         JoystickBgImage.enabled = true;
 
-    joystickMove.transform.position = Input.mousePosition;
+        joystickMove.transform.position = Input.mousePosition;
         joystickBGMove.transform.position = Input.mousePosition;
         joystickTouchPosMove = Input.mousePosition;
     }
