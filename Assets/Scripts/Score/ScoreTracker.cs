@@ -10,9 +10,6 @@ public class ScoreTracker : MonoBehaviour
     public GameEvent OnChangeScoreEvent;
     public GameEvent OnNormalZobieDieEvent;
 
-    [Header("Scoring")]
-    public IntVariable NormalZombieScoreValue;
-
     private void Start()
     {
         // later on change it to a loaded value

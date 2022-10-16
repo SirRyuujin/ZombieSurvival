@@ -7,6 +7,11 @@ using UnityEngine.UI;
 // mergin all spawners into one object?
 public class Spawner : MonoBehaviour
 {
+    public float LeftCord;
+    public float RightCord;
+    public float TopCord;
+    public float BottomCord;
+
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private FloatVariable _spawnInterval;
     [SerializeField] private FloatVariable _initialSpawnDelay;
@@ -20,7 +25,6 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        // set spawn position based on player's position
         Vector3 spawnPosition = GetValidSpawnPoint();
 
         Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
@@ -28,13 +32,26 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetValidSpawnPoint()
     {
-        // 1. Distance between cam viewport and world boundries
-        // if > 0 => spawn enemy
-        // else
-        // check on other sides | spawn in cam view
+        float x;
+        float y;
+        Vector3 spawnPoint = new Vector3(0, 0, 10);
+        bool isValid = false;
 
-        // 2. Set spawn points
+        do
+        {
+            y = Random.Range(0f, 1f);
 
-        return _cam.ViewportToWorldPoint(new Vector3(1.1f, 0.5f, 10));
+            if (Random.Range(0, 2) == 0)
+                x = Random.Range(-0.5f, -0.1f);
+            else
+                x = Random.Range(1.1f, 1.5f);
+
+            spawnPoint = _cam.ViewportToWorldPoint(new Vector3(x, y, 10));
+            if (spawnPoint.x >= LeftCord && spawnPoint.x <= RightCord)
+                if (spawnPoint.y <= TopCord && spawnPoint.y >= BottomCord)
+                    isValid = true;
+        } while (!isValid);
+
+        return spawnPoint;
     }
 }

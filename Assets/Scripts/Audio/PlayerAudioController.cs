@@ -54,12 +54,9 @@ public class PlayerAudioController : MonoBehaviour
             yield return null;
     }
 
-    public void PlayGetHitEvent()
+    public void PlayGetHitClip()
     {
-        if (!GruntSource.isPlaying)
-        {
-            GruntSource.clip = Grunts[Random.Range(0, Grunts.Length)];
-            GruntSource.Play();
-        }
+        GruntSource.clip = Grunts[Random.Range(0, Grunts.Length)];
+        GruntSource.Play();
     }
 }

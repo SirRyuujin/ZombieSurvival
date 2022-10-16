@@ -147,7 +147,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2640257407383581671}
         m_TargetAssemblyTypeName: PlayerAudioController, Assembly-CSharp
-        m_MethodName: PlayGetHitEvent
+        m_MethodName: PlayGetHitClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
