@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetInitStats()
     {
-        _maxHp.Value = _initStats.MaxHP;
+   //     _maxHp.Value = _initStats.MaxHP;
         _currentHp.Value = _maxHp.Value;
         _playerSpeed = _initStats.MovementSpeed;
     }
