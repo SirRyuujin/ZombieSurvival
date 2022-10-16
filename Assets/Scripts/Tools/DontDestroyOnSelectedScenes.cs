@@ -13,8 +13,11 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
 
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+
+        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

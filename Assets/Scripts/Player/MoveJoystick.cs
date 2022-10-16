@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MoveJoystick : MonoBehaviour
 {
     public GameObject joystickMove;
     public GameObject joystickBGMove;
+    public Image JoystickImage;
+    public Image JoystickBgImage; 
     public Vector2 joystickVecMove;
     private Vector2 joystickTouchPosMove;
     private Vector2 joystickOriginalPosMove;
@@ -21,7 +24,10 @@ public class MoveJoystick : MonoBehaviour
 
     public void PointerDown()
     {
-        joystickMove.transform.position = Input.mousePosition;
+        JoystickImage.enabled = true;
+        JoystickBgImage.enabled = true;
+
+    joystickMove.transform.position = Input.mousePosition;
         joystickBGMove.transform.position = Input.mousePosition;
         joystickTouchPosMove = Input.mousePosition;
     }
@@ -49,6 +55,8 @@ public class MoveJoystick : MonoBehaviour
         joystickVecMove = Vector2.zero;
         joystickMove.transform.position = joystickOriginalPosMove;
         joystickBGMove.transform.position = joystickOriginalPosMove;
-    }
 
+        JoystickImage.enabled = false;
+        JoystickBgImage.enabled = false;
+    }
 }
