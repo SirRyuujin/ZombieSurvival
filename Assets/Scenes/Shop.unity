@@ -608,6 +608,8 @@ GameObject:
   - component: {fileID: 316449362}
   - component: {fileID: 316449361}
   - component: {fileID: 316449360}
+  - component: {fileID: 316449364}
+  - component: {fileID: 316449363}
   m_Layer: 5
   m_Name: Ammo
   m_TagString: Untagged
@@ -719,6 +721,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316449358}
   m_CullTransparentMesh: 1
+--- !u!114 &316449363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316449358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600fdd4d54e303f4e929e488e9777292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyUpgrade: {fileID: 316449364}
+  PlayerMaxAmmo: {fileID: 11400000, guid: 25be91ac2788f9942898dfe11f3f1216, type: 2}
+--- !u!114 &316449364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316449358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b8b20a759507746b80c937f1dc2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentScore: {fileID: 11400000, guid: 1d8a0a41dc0c11e45b95ff5c152ae879, type: 2}
+  Price: {fileID: 11400000, guid: 81908276e6f435f40b3c8af7b384d4a2, type: 2}
 --- !u!1 &423189088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1849,8 @@ GameObject:
   - component: {fileID: 1092684598}
   - component: {fileID: 1092684597}
   - component: {fileID: 1092684596}
+  - component: {fileID: 1092684600}
+  - component: {fileID: 1092684599}
   m_Layer: 5
   m_Name: MovementSpeed
   m_TagString: Untagged
@@ -1930,6 +1962,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092684594}
   m_CullTransparentMesh: 1
+--- !u!114 &1092684599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092684594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837718cc74f03734c89404faa945669c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyUpgrade: {fileID: 460045394}
+  PlayerHealth: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
+--- !u!114 &1092684600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092684594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b8b20a759507746b80c937f1dc2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentScore: {fileID: 11400000, guid: 1d8a0a41dc0c11e45b95ff5c152ae879, type: 2}
+  Price: {fileID: 11400000, guid: 4a3b7c0b5caa33140b575e699e0f9c62, type: 2}
 --- !u!1 &1093247515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2559,8 @@ GameObject:
   - component: {fileID: 1215911218}
   - component: {fileID: 1215911217}
   - component: {fileID: 1215911216}
+  - component: {fileID: 1215911220}
+  - component: {fileID: 1215911219}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -2610,6 +2672,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215911214}
   m_CullTransparentMesh: 1
+--- !u!114 &1215911219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215911214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feadf623e23fab341be5b453ddfc9f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyUpgrade: {fileID: 1215911220}
+  FireRate: {fileID: 11400000, guid: aa72dd57bd45d4a43a9c55b12304e3fb, type: 2}
+--- !u!114 &1215911220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215911214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b8b20a759507746b80c937f1dc2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentScore: {fileID: 11400000, guid: 1d8a0a41dc0c11e45b95ff5c152ae879, type: 2}
+  Price: {fileID: 11400000, guid: 4569bf738bbc9e140b6da588f379353b, type: 2}
 --- !u!1 &1219117701
 GameObject:
   m_ObjectHideFlags: 0
