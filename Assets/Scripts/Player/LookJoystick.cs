@@ -16,6 +16,9 @@ public class LookJoystick : MonoBehaviour
     private Vector2 joystickTouchPos;
     private Vector2 joystickOriginalPos;
     private float joystickRadius;
+    public bool IsDragging = false;
+
+    public Vector2 lastDragPosition;
 
     private void Start()
     {
@@ -23,8 +26,32 @@ public class LookJoystick : MonoBehaviour
         joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.y / 2.5f;
     }
 
-    public void PointerDown()
+    private void Update()
     {
+        if (IsDragging)
+        {
+            joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+
+            float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
+
+            if (joystickDist < joystickRadius)
+            {
+                joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+            }
+            else
+            {
+                joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
+            }
+
+            if (joystickDist >= joystickRadius)
+                OnTryFirePrimaryWeaponEvent.Raise();
+        }
+    }
+
+    public void PointerDown(BaseEventData baseEventData)
+    {
+        IsDragging = true;
+
         JoystickImage.enabled = true;
         JoystickBgImage.enabled = true;
 
@@ -36,10 +63,10 @@ public class LookJoystick : MonoBehaviour
     public void Drag(BaseEventData baseEventData)
     {
         PointerEventData pointerEventData = baseEventData as PointerEventData;
-        Vector2 dragPos = pointerEventData.position;
-        joystickVec = (dragPos - joystickTouchPos).normalized;
+        lastDragPosition = pointerEventData.position;
+        joystickVec = (lastDragPosition - joystickTouchPos).normalized;
 
-        float joystickDist = Vector2.Distance(dragPos, joystickTouchPos);
+        float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
 
         if (joystickDist < joystickRadius)
         {
@@ -56,6 +83,8 @@ public class LookJoystick : MonoBehaviour
 
     public void PointerUp()
     {
+        IsDragging = false;
+
         joystickVec = Vector2.zero;
         joystick.transform.position = joystickOriginalPos;
         joystickBG.transform.position = joystickOriginalPos;
