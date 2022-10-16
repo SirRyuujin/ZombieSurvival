@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageUpgrade : MonoBehaviour
+public class FireRateUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
-    public IntVariable Damage;
+    public FloatVariable FireRate;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,9 @@ public class DamageUpgrade : MonoBehaviour
         
     }
 
-    public void UpgradeDamage()
+    public void UpgradeFireRate()
     {
         BuyUpgrade.CheckPrice();
-        Damage.Value += 5;
+        FireRate.Value += 3f;
     }
 }
