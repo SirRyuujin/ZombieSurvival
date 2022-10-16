@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera _cam;
     [SerializeField] private IntVariable _currentHp;
     [SerializeField] private IntVariable _maxHp;
+    [SerializeField] private FloatVariable _movementSpeed;
 
     [Header("Events")]
     [SerializeField] private GameEvent OnChangePlayersHealthEvent;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
    //     _maxHp.Value = _initStats.MaxHP;
         _currentHp.Value = _maxHp.Value;
-        _playerSpeed = _initStats.MovementSpeed;
+        _playerSpeed = _movementSpeed.Value;
     }
 
     private void HandlePlayerCamera()

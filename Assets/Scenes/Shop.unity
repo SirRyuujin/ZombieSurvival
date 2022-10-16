@@ -2154,7 +2154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1092684597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1092684599}
+        m_TargetAssemblyTypeName: MovementSpeedUpgrade, Assembly-CSharp
+        m_MethodName: UpgradeMovementSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1092684597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,8 +2217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837718cc74f03734c89404faa945669c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuyUpgrade: {fileID: 460045394}
-  PlayerHealth: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
+  BuyUpgrade: {fileID: 1092684600}
+  PlayerMovementSpeed: {fileID: 11400000, guid: bc4995b32b2f82349b0212ee35a6dd44, type: 2}
 --- !u!114 &1092684600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,7 +3013,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1215911217}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1215911219}
+        m_TargetAssemblyTypeName: DamageUpgrade, Assembly-CSharp
+        m_MethodName: UpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215911217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3053,7 +3077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuyUpgrade: {fileID: 1215911220}
-  Damage: {fileID: 0}
+  Damage: {fileID: 11400000, guid: 809b125c106e61243ad2dbbcd9d7398c, type: 2}
 --- !u!114 &1215911220
 MonoBehaviour:
   m_ObjectHideFlags: 0

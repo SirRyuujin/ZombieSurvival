@@ -5,14 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //public GameObject impactEffect;
-    public int damage = 40;
+    public IntVariable PlayerDamage;
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(PlayerDamage.Value);
         }
 
         //Instantiate(impactEffect, transform.position, transform.rotation);
