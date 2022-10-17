@@ -6,22 +6,15 @@ public class FireRateUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
     public FloatVariable FireRate;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SaveLoadSystem SaveLoadSystem;
 
     public void UpgradeFireRate()
     {
         BuyUpgrade.CheckPrice();
+        if (SaveLoadSystem == null)
+            SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
+
         FireRate.Value += 3f;
+        SaveLoadSystem.SaveData();
     }
 }

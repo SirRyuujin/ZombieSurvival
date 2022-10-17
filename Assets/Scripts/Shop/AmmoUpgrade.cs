@@ -6,24 +6,15 @@ public class AmmoUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
     public IntVariable PlayerMaxAmmo;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SaveLoadSystem SaveLoadSystem;
 
     public void UpgradeMaxAmmo()
     {
         BuyUpgrade.CheckPrice();
-        PlayerMaxAmmo.Value += 5;
-    }
+        if (SaveLoadSystem == null)
+            SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 
-    
+        PlayerMaxAmmo.Value += 5;
+        SaveLoadSystem.SaveData();
+    } 
 }

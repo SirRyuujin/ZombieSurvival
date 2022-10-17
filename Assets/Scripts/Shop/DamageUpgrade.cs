@@ -6,22 +6,15 @@ public class DamageUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
     public IntVariable Damage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SaveLoadSystem SaveLoadSystem;
 
     public void UpgradeDamage()
     {
         BuyUpgrade.CheckPrice();
+        if (SaveLoadSystem == null)
+            SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
+
         Damage.Value += 5;
+        SaveLoadSystem.SaveData();
     }
 }

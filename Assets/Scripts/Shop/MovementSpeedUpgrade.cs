@@ -6,22 +6,15 @@ public class MovementSpeedUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
     public FloatVariable PlayerMovementSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SaveLoadSystem SaveLoadSystem;
 
     public void UpgradeMovementSpeed()
     {
         BuyUpgrade.CheckPrice();
+        if (SaveLoadSystem == null)
+            SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
+
         PlayerMovementSpeed.Value += 2f;
+        SaveLoadSystem.SaveData();
     }
 }

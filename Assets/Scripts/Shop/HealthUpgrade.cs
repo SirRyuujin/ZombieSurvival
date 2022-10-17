@@ -6,24 +6,16 @@ public class HealthUpgrade : MonoBehaviour
 {
     public BuyUpgrade BuyUpgrade;
     public IntVariable PlayerHealth;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SaveLoadSystem SaveLoadSystem;
 
     public void UpgradeMaxHP()
     {
         BuyUpgrade.CheckPrice();
-        PlayerHealth.Value += 50;
-    }
 
-    
+        if (SaveLoadSystem == null)
+            SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
+        
+        PlayerHealth.Value += 50;
+        SaveLoadSystem.SaveData();
+    }
 }
