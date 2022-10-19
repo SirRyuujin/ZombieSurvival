@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2913026765195332707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2913026765195332706}
+  - component: {fileID: 2913026765195332705}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2913026765195332706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913026765195332707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2913026765195332705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913026765195332707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73933ad573be05945b95c54ade5dea5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 758419779827678407, guid: 67d1a528f9a39f44bb71a4493ec37ab8, type: 3}
+  _spawnInterval: {fileID: 11400000, guid: c9bbe6c86ca230a4596e2c855382adeb, type: 2}
+  _initialSpawnDelay: {fileID: 11400000, guid: 461248fb322b1424ea7c509e948ee6cd, type: 2}
+  EnemyType: {fileID: 11400000, guid: 6d36812c609083d40b93393a5e8f61f6, type: 2}
+  WaveSettings:
+  - {fileID: 11400000, guid: b1cac445711c743459e681c0af0f130e, type: 2}
+  - {fileID: 11400000, guid: 742a4206ed5c4bd468d2e8cc16f36f65, type: 2}
+  - {fileID: 11400000, guid: 4770684cbd5b14a4bb2bff9c4f78ea8c, type: 2}
+  SettingsID: {fileID: 11400000, guid: d89a99d491f26b34b98f45e34feb072c, type: 2}
+  LeftCord: -20.5
+  RightCord: 21.5
+  TopCord: 22.5
+  BottomCord: -6.5
+  _cam: {fileID: 0}

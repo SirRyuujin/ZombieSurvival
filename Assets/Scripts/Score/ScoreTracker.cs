@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreTracker : MonoBehaviour
 {
-    public IntVariable TotalScore;
+    public IntVariable SessionsScore;
     
     [Header("Events")]
     public GameEvent OnChangeScoreEvent;
@@ -12,19 +12,18 @@ public class ScoreTracker : MonoBehaviour
 
     private void Start()
     {
-        // later on change it to a loaded value
         SetScore(0);
     }
 
     private void SetScore(int value)
     {
-        TotalScore.Value = value;
+        SessionsScore.Value = value;
         OnChangeScoreEvent.Raise();
     }
 
     public void ChangeScore(EnemyBaseStats enemy)
     {
-        TotalScore.Value += enemy.Score;
+        SessionsScore.Value += enemy.Score;
         OnChangeScoreEvent.Raise();
     }
 }

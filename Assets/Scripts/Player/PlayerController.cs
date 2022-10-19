@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerInitialStats _initStats;
     [SerializeField] private LookJoystick _lookJoystick;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private MoveJoystick _movementJoystick;
@@ -39,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetInitStats()
     {
-   //     _maxHp.Value = _initStats.MaxHP;
         _currentHp.Value = _maxHp.Value;
         _playerSpeed = _movementSpeed.Value;
     }

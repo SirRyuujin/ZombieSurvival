@@ -7,20 +7,30 @@ using UnityEngine.UI;
 // mergin all spawners into one object?
 public class Spawner : MonoBehaviour
 {
-    public float LeftCord;
-    public float RightCord;
-    public float TopCord;
-    public float BottomCord;
-
+    [Header("Customization")]
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private FloatVariable _spawnInterval;
     [SerializeField] private FloatVariable _initialSpawnDelay;
+    public EnemyType EnemyType;
+
+    [Header("References")]
+    public WaveSettings[] WaveSettings;
+    public IntVariable SettingsID;
+    public float LeftCord;
+    public float RightCord;
+    public float TopCord;
+    public float BottomCord;  
     [SerializeField] private Camera _cam;
 
     private void Start()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.         
         InvokeRepeating("Spawn", _initialSpawnDelay.Value, _spawnInterval.Value);
+    }
+
+    public void ApplyWaveSettings(float newSpawnInterval)
+    {
+        _spawnInterval.Value = newSpawnInterval;
     }
 
     private void Spawn()

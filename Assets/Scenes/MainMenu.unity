@@ -663,6 +663,7 @@ MonoBehaviour:
   MaxHp: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
   Ammo: {fileID: 11400000, guid: 25be91ac2788f9942898dfe11f3f1216, type: 2}
   Damage: {fileID: 11400000, guid: 809b125c106e61243ad2dbbcd9d7398c, type: 2}
+  TotalScore: {fileID: 11400000, guid: 1d8a0a41dc0c11e45b95ff5c152ae879, type: 2}
   MoveSpeed: {fileID: 11400000, guid: bc4995b32b2f82349b0212ee35a6dd44, type: 2}
   ReloadTime: {fileID: 11400000, guid: dd2449ee4f3c6a34099ee78921184465, type: 2}
   FireRate: {fileID: 11400000, guid: aa72dd57bd45d4a43a9c55b12304e3fb, type: 2}
