@@ -102,12 +102,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnemyDieEvent: {fileID: 11400000, guid: 60ed7205bc0b75646b2ceda4fbc1dd18, type: 2}
   OnNormalZombieDieEvent: {fileID: 0}
-  _rb: {fileID: 2518987641265870764}
-  _normalZobieScoreValue: {fileID: 0}
+  OnNormalZombieAttackEvent: {fileID: 0}
+  Rb: {fileID: 0}
+  _baseStats: {fileID: 0}
+  TargetTransform: {fileID: 0}
   _target: {fileID: 0}
-  _moveSpeed: 1
-  movement: {x: 0, y: 0}
-  health: 300
+  MoveSpeed: 1
+  _currentHp: 0
+  _timeLeftToAttack: 0
+  IdleSource: {fileID: 0}
+  IdleClips: []
 --- !u!95 &2518987641265870771
 Animator:
   serializedVersion: 4
