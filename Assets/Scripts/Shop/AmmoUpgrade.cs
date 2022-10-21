@@ -10,11 +10,13 @@ public class AmmoUpgrade : MonoBehaviour
 
     public void UpgradeMaxAmmo()
     {
-        BuyUpgrade.CheckPrice();
+        if (!BuyUpgrade.CheckPrice())
+            return;
+
         if (SaveLoadSystem == null)
             SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 
-        PlayerMaxAmmo.Value += 5;
+        PlayerMaxAmmo.Value += 1;
         SaveLoadSystem.SaveData();
     } 
 }

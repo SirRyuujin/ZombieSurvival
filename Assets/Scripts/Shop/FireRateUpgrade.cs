@@ -10,11 +10,13 @@ public class FireRateUpgrade : MonoBehaviour
 
     public void UpgradeFireRate()
     {
-        BuyUpgrade.CheckPrice();
+        if (!BuyUpgrade.CheckPrice())
+            return;
+
         if (SaveLoadSystem == null)
             SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 
-        FireRate.Value += 3f;
+        FireRate.Value += 0.5f;
         SaveLoadSystem.SaveData();
     }
 }

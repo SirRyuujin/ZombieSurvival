@@ -10,11 +10,13 @@ public class MovementSpeedUpgrade : MonoBehaviour
 
     public void UpgradeMovementSpeed()
     {
-        BuyUpgrade.CheckPrice();
+        if (!BuyUpgrade.CheckPrice())
+            return;
+
         if (SaveLoadSystem == null)
             SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 
-        PlayerMovementSpeed.Value += 2f;
+        PlayerMovementSpeed.Value += 0.1f;
         SaveLoadSystem.SaveData();
     }
 }

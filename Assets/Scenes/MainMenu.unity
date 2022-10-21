@@ -668,6 +668,11 @@ MonoBehaviour:
   MoveSpeed: {fileID: 11400000, guid: bc4995b32b2f82349b0212ee35a6dd44, type: 2}
   ReloadTime: {fileID: 11400000, guid: dd2449ee4f3c6a34099ee78921184465, type: 2}
   FireRate: {fileID: 11400000, guid: aa72dd57bd45d4a43a9c55b12304e3fb, type: 2}
+  HealthPointsInvested: {fileID: 11400000, guid: 0ab91d19f1d8948479fd7c24e62b034d, type: 2}
+  AmmoPointsInvested: {fileID: 11400000, guid: 80ee3b4587e5d2c41a190991f654bdc0, type: 2}
+  DamagePointsInvested: {fileID: 11400000, guid: 1f0ed17450490564bb69e200bbd4a69e, type: 2}
+  MovementSpeedPointsInvested: {fileID: 11400000, guid: 0ac77266b82f15b4ab614e4a8fd7a813, type: 2}
+  FireRatePointsInvested: {fileID: 11400000, guid: 7192e857471a24d4eb8fb553bdfc5cf2, type: 2}
 --- !u!114 &428221016
 MonoBehaviour:
   m_ObjectHideFlags: 0

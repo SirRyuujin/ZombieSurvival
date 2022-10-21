@@ -10,12 +10,18 @@ public class SaveLoadSystem : MonoBehaviour
     public IntVariable MaxHp;
     public IntVariable Ammo;
     public IntVariable Damage;
-    public IntVariable TotalScore;
+    public IntVariable HighScore;
     public IntVariable SurvivalPoints;
 
     public FloatVariable MoveSpeed;
     public FloatVariable ReloadTime;
     public FloatVariable FireRate;
+
+    public IntVariable HealthPointsInvested;
+    public IntVariable AmmoPointsInvested;
+    public IntVariable DamagePointsInvested;
+    public IntVariable MovementSpeedPointsInvested;
+    public IntVariable FireRatePointsInvested;
 
     private void Start()
     {
@@ -30,7 +36,7 @@ public class SaveLoadSystem : MonoBehaviour
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(MaxHp.Value, Ammo.Value, Damage.Value, TotalScore.Value, SurvivalPoints.Value, MoveSpeed.Value, ReloadTime.Value, FireRate.Value);
+        GameData data = new GameData(MaxHp.Value, Ammo.Value, Damage.Value, HighScore.Value, SurvivalPoints.Value, MoveSpeed.Value, ReloadTime.Value, FireRate.Value, HealthPointsInvested.Value, AmmoPointsInvested.Value, DamagePointsInvested.Value, MovementSpeedPointsInvested.Value, FireRatePointsInvested.Value);
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -52,10 +58,6 @@ public class SaveLoadSystem : MonoBehaviour
 
             SetLoadedData(data);
         }
-        else
-        {
-            Debug.LogError("Error: Save file not found in " + path);
-        }
     }
 
     private void SetLoadedData(GameData data)
@@ -63,7 +65,7 @@ public class SaveLoadSystem : MonoBehaviour
         MaxHp.Value = data.MaxHp;
         Ammo.Value = data.Ammo;
         Damage.Value = data.Damage;
-        TotalScore.Value = data.TotalScore;
+        HighScore.Value = data.HighScore;
         SurvivalPoints.Value = data.SurvivalPoints;
 
         MoveSpeed.Value = data.MoveSpeed;

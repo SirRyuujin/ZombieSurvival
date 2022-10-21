@@ -1,37 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BuyUpgrade : MonoBehaviour
 {
-    public IntVariable CurrentScore;
-    public IntVariable Price;
+    public IntVariable SurvivalPoints;
+    public IntVariable PointsInvested;
+    public TextMeshProUGUI PriceText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        SetPriceText();
     }
 
-    // Update is called once per frame
-    void Update()
+    private int GetPrice(int lvl)
     {
-        
+        if (lvl == 0)
+            return 1;
+        else if (lvl == 1)
+            return 2;
+        else
+            return (5 * (lvl - 1));
     }
 
     public bool CheckPrice()
     {
-        if (CurrentScore.Value >= Price.Value)
+        if (SurvivalPoints.Value >= GetPrice(PointsInvested.Value))
         {
             Debug.Log("Sold!");
-            CurrentScore.Value -= Price.Value;
-            return true;
-            
+            SurvivalPoints.Value -= GetPrice(PointsInvested.Value);
+            PointsInvested.Value++;
+            SetPriceText();
+            return true;            
         }
         else 
         {
             Debug.Log("You don't have enough points!");
             return false;
         }
+    }
+
+    public void SetPriceText()
+    {
+        PriceText.text = GetPrice(PointsInvested.Value).ToString();
     }
 }

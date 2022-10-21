@@ -10,7 +10,9 @@ public class DamageUpgrade : MonoBehaviour
 
     public void UpgradeDamage()
     {
-        BuyUpgrade.CheckPrice();
+        if (!BuyUpgrade.CheckPrice())
+            return;
+
         if (SaveLoadSystem == null)
             SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 

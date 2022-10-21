@@ -10,12 +10,13 @@ public class HealthUpgrade : MonoBehaviour
 
     public void UpgradeMaxHP()
     {
-        BuyUpgrade.CheckPrice();
+        if (!BuyUpgrade.CheckPrice())
+            return;
 
         if (SaveLoadSystem == null)
             SaveLoadSystem = FindObjectOfType<SaveLoadSystem>();
         
-        PlayerHealth.Value += 50;
+        PlayerHealth.Value += 20;
         SaveLoadSystem.SaveData();
     }
 }
