@@ -763,6 +763,7 @@ MonoBehaviour:
   SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
   PointsInvested: {fileID: 11400000, guid: 80ee3b4587e5d2c41a190991f654bdc0, type: 2}
   PriceText: {fileID: 1916767057}
+  OnSurvivalPointsSpentEvent: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
 --- !u!1 &318630403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
   PointsInvested: {fileID: 11400000, guid: 0ab91d19f1d8948479fd7c24e62b034d, type: 2}
   PriceText: {fileID: 1626528810}
+  OnSurvivalPointsSpentEvent: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
 --- !u!1 &719522865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2225,7 @@ MonoBehaviour:
   SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
   PointsInvested: {fileID: 11400000, guid: 0ac77266b82f15b4ab614e4a8fd7a813, type: 2}
   PriceText: {fileID: 1380436154}
+  OnSurvivalPointsSpentEvent: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
 --- !u!1 &1093247515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,12 +2847,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.94
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2864,7 +2867,7 @@ Canvas:
   m_GameObject: {fileID: 1199848082}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1335680355}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3084,6 +3087,7 @@ MonoBehaviour:
   SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
   PointsInvested: {fileID: 11400000, guid: 1f0ed17450490564bb69e200bbd4a69e, type: 2}
   PriceText: {fileID: 2063811249}
+  OnSurvivalPointsSpentEvent: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
 --- !u!1 &1219117701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,6 +3233,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1307752497}
   - component: {fileID: 1307752498}
+  - component: {fileID: 1307752500}
+  - component: {fileID: 1307752499}
   m_Layer: 5
   m_Name: Survival Points
   m_TagString: Untagged
@@ -3255,7 +3261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 25, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1307752498
@@ -3266,6 +3272,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307752496}
   m_CullTransparentMesh: 1
+--- !u!114 &1307752499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307752496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c588985c27e93df4d80ddcfe2bf59501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SurvivalPointsText: {fileID: 1649189908}
+  SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
+--- !u!114 &1307752500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307752496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea57a2e68fd5d549a8c6f60523bc280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1307752499}
+        m_TargetAssemblyTypeName: ShopUIController, Assembly-CSharp
+        m_MethodName: UpdateSurvivalPointsText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1335680353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4936,6 +4984,7 @@ MonoBehaviour:
   SurvivalPoints: {fileID: 11400000, guid: a5c372eb6c31fb1439179d2461a223fe, type: 2}
   PointsInvested: {fileID: 11400000, guid: 7192e857471a24d4eb8fb553bdfc5cf2, type: 2}
   PriceText: {fileID: 318630405}
+  OnSurvivalPointsSpentEvent: {fileID: 11400000, guid: 5be6ee2cad4f85b45bce82a0f3a5bd8b, type: 2}
 --- !u!114 &1865827217
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class BuyUpgrade : MonoBehaviour
     public IntVariable SurvivalPoints;
     public IntVariable PointsInvested;
     public TextMeshProUGUI PriceText;
+    public GameEvent OnSurvivalPointsSpentEvent;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class BuyUpgrade : MonoBehaviour
             SurvivalPoints.Value -= GetPrice(PointsInvested.Value);
             PointsInvested.Value++;
             SetPriceText();
+            OnSurvivalPointsSpentEvent.Raise();
             return true;            
         }
         else 
