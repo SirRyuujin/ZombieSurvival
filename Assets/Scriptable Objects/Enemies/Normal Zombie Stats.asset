@@ -17,4 +17,4 @@ MonoBehaviour:
   Score: 1
   Damage: 5
   AttackCooldown: 1.5
-  AttackRange: 1
+  AttackRange: 1.1
