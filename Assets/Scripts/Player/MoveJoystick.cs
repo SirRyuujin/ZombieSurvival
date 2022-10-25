@@ -22,20 +22,19 @@ public class MoveJoystick : MonoBehaviour
         joystickRadiusMove = joystickBGMove.GetComponent<RectTransform>().sizeDelta.y / 4f;
     }
 
-    public void PointerDown()
+    public void PointerDown(Vector2 pos)
     {
         JoystickImage.enabled = true;
         JoystickBgImage.enabled = true;
 
-        joystickMove.transform.position = Input.mousePosition;
-        joystickBGMove.transform.position = Input.mousePosition;
-        joystickTouchPosMove = Input.mousePosition;
+        joystickMove.transform.position = pos;
+        joystickBGMove.transform.position = pos;
+        joystickTouchPosMove = pos;
     }
 
-    public void Drag(BaseEventData baseEventData)
+    public void Drag(Vector2 pointerEventData)
     {
-        PointerEventData pointerEventData = baseEventData as PointerEventData;
-        Vector2 dragPos = pointerEventData.position;
+        Vector2 dragPos = pointerEventData;
         joystickVecMove = (dragPos - joystickTouchPosMove).normalized;
 
         float joystickDistMove = Vector2.Distance(dragPos, joystickTouchPosMove);

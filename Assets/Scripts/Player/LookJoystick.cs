@@ -48,22 +48,21 @@ public class LookJoystick : MonoBehaviour
         }
     }
 
-    public void PointerDown(BaseEventData baseEventData)
+    public void PointerDown(Vector2 pos)
     {
         IsDragging = true;
 
         JoystickImage.enabled = true;
         JoystickBgImage.enabled = true;
 
-        joystick.transform.position = Input.mousePosition;
-        joystickBG.transform.position = Input.mousePosition;
-        joystickTouchPos = Input.mousePosition;
+        joystick.transform.position = pos;
+        joystickBG.transform.position = pos;
+        joystickTouchPos = pos;
     }
 
-    public void Drag(BaseEventData baseEventData)
+    public void Drag(Vector2 pointerEventData)
     {
-        PointerEventData pointerEventData = baseEventData as PointerEventData;
-        lastDragPosition = pointerEventData.position;
+        lastDragPosition = pointerEventData;
         joystickVec = (lastDragPosition - joystickTouchPos).normalized;
 
         float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);

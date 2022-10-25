@@ -357,7 +357,7 @@ MonoBehaviour:
   _currentAmmo: {fileID: 11400000, guid: 35b4091fd4a9502459f1ef8f405994a7, type: 2}
   _maxAmmo: {fileID: 11400000, guid: 25be91ac2788f9942898dfe11f3f1216, type: 2}
   _fireRate: {fileID: 11400000, guid: aa72dd57bd45d4a43a9c55b12304e3fb, type: 2}
-  _reloadTime: {fileID: 11400000, guid: e0d6b6e3407c7a34d92b6dd4576e5b33, type: 2}
+  _reloadTime: {fileID: 11400000, guid: dd2449ee4f3c6a34099ee78921184465, type: 2}
   firePoint: {fileID: 5356894109045329592}
   bulletPrefab: {fileID: 3637152904627691746, guid: b6fcfa8f747f0cf43931879b65840f11, type: 3}
   bulletForce: 20
@@ -550,13 +550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adabb7fdb1afa84eb0b48199ecdf25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initStats: {fileID: 11400000, guid: 863741d461569f54e91dafed2f3bd4c7, type: 2}
   _lookJoystick: {fileID: 0}
   _rb: {fileID: 5356894109381004182}
   _movementJoystick: {fileID: 0}
   _cam: {fileID: 0}
   _currentHp: {fileID: 11400000, guid: 32625a2e56869c84993beb2f2a31fd51, type: 2}
   _maxHp: {fileID: 11400000, guid: e262367ad13be5a4b91fa6a1e36164a9, type: 2}
+  _movementSpeed: {fileID: 11400000, guid: bc4995b32b2f82349b0212ee35a6dd44, type: 2}
   OnChangePlayersHealthEvent: {fileID: 11400000, guid: e9e452b5e8e6a3c4fac8451d838a598d, type: 2}
   OnPlayerGetHitEvent: {fileID: 11400000, guid: f74f0bbe7cf91104fae7a2d1957daff9, type: 2}
   OnPlayerDieEvent: {fileID: 11400000, guid: 9b73176bbd94f964d859ccb030b8e045, type: 2}
@@ -583,7 +583,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5356894109381004188
 BoxCollider2D:
   m_ObjectHideFlags: 0
