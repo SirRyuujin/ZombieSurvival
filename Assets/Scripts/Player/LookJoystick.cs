@@ -30,21 +30,16 @@ public class LookJoystick : MonoBehaviour
     {
         if (IsDragging)
         {
-            joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+            //joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+            //float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
 
-            float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
+            //if (joystickDist < joystickRadius)
+            //    joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+            //else
+            //    joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
 
-            if (joystickDist < joystickRadius)
-            {
-                joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
-            }
-            else
-            {
-                joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
-            }
-
-            if (joystickDist >= joystickRadius)
-                OnTryFirePrimaryWeaponEvent.Raise();
+            //if (joystickDist >= joystickRadius)
+            //    OnTryFirePrimaryWeaponEvent.Raise();
         }
     }
 
@@ -68,13 +63,9 @@ public class LookJoystick : MonoBehaviour
         float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
 
         if (joystickDist < joystickRadius)
-        {
             joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
-        }
         else
-        {
             joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
-        }
 
         if (joystickDist >= joystickRadius)
             OnTryFirePrimaryWeaponEvent.Raise();
@@ -91,4 +82,35 @@ public class LookJoystick : MonoBehaviour
         JoystickImage.enabled = false;
         JoystickBgImage.enabled = false;
     }
+
+    #region MOUSE
+    public void PointDownWithMouse()
+    {
+        IsDragging = true;
+
+        JoystickImage.enabled = true;
+        JoystickBgImage.enabled = true;
+
+        joystick.transform.position = Input.mousePosition;
+        joystickBG.transform.position = Input.mousePosition;
+        joystickTouchPos = Input.mousePosition;
+    }
+
+    public void DragWithMouse(BaseEventData baseEventData)
+    {
+        PointerEventData pointerEventData = baseEventData as PointerEventData;
+        lastDragPosition = pointerEventData.position;
+
+        joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+        float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
+
+        if (joystickDist < joystickRadius)
+            joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+        else
+            joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
+
+        if (joystickDist >= joystickRadius)
+            OnTryFirePrimaryWeaponEvent.Raise();
+    }
+    #endregion
 }

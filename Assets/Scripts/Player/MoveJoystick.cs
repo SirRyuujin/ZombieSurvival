@@ -31,7 +31,7 @@ public class MoveJoystick : MonoBehaviour
         joystickBGMove.transform.position = pos;
         joystickTouchPosMove = pos;
     }
-
+  
     public void Drag(Vector2 pointerEventData)
     {
         Vector2 dragPos = pointerEventData;
@@ -40,13 +40,9 @@ public class MoveJoystick : MonoBehaviour
         float joystickDistMove = Vector2.Distance(dragPos, joystickTouchPosMove);
 
         if (joystickDistMove < joystickRadiusMove)
-        {
             joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickDistMove;
-        }
         else
-        {
             joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickRadiusMove;
-        }
     }
 
     public void PointerUp()
@@ -58,4 +54,30 @@ public class MoveJoystick : MonoBehaviour
         JoystickImage.enabled = false;
         JoystickBgImage.enabled = false;
     }
+
+    #region MOUSE
+    public void PointDownWithMouse()
+    {
+        JoystickImage.enabled = true;
+        JoystickBgImage.enabled = true;
+
+        joystickMove.transform.position = Input.mousePosition;
+        joystickBGMove.transform.position = Input.mousePosition;
+        joystickTouchPosMove = Input.mousePosition;
+    }
+
+    public void DragWithMouse(BaseEventData baseEventData)
+    {
+        PointerEventData pointerEventData = baseEventData as PointerEventData;
+        Vector2 dragPos = pointerEventData.position;
+        joystickVecMove = (dragPos - joystickTouchPosMove).normalized;
+
+        float joystickDistMove = Vector2.Distance(dragPos, joystickTouchPosMove);
+
+        if (joystickDistMove < joystickRadiusMove)
+            joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickDistMove;
+        else
+            joystickMove.transform.position = joystickTouchPosMove + joystickVecMove * joystickRadiusMove;
+    }
+    #endregion
 }

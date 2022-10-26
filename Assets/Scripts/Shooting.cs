@@ -32,10 +32,10 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
-        {
-            TryShoot();
-        }
+        //if(Input.GetButtonDown("Fire1"))
+        //{
+        //    TryShoot();
+        //}
 
         UpdateFireTimer();
     }
