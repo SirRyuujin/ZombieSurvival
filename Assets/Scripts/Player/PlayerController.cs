@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _playerSpeed;    
     [SerializeField] private Vector2 _mousePos;
 
+    private bool _isAlive = true;
+
     private void Awake()
     {
         SetInitStats();
@@ -83,12 +85,16 @@ public class PlayerController : MonoBehaviour
         if (_currentHp.Value <= 0)
             Die();
 
-        OnPlayerGetHitEvent.Raise();
-        OnChangePlayersHealthEvent.Raise();
+        if (_isAlive)
+        {
+            OnPlayerGetHitEvent.Raise();
+            OnChangePlayersHealthEvent.Raise();
+        }
     }
 
     private void Die()
     {
+        _isAlive = false;
         OnPlayerDieEvent.Raise();
     }
 }

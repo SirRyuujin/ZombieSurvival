@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0870d25913d03264b93a82815edc5703, type: 3}
   m_Name: Player's  Current HP
   m_EditorClassIdentifier: 
-  Value: -5
+  Value: 0

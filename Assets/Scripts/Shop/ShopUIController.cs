@@ -15,6 +15,6 @@ public class ShopUIController : MonoBehaviour
 
     public void UpdateSurvivalPointsText()
     {
-        SurvivalPointsText.text = SurvivalPoints.ToString();
+        SurvivalPointsText.text = SurvivalPoints.Value.ToString();
     }
 }

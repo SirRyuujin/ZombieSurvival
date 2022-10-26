@@ -9,13 +9,15 @@ public class ScoreTracker : MonoBehaviour
     public float ScoreMultiplierPerMinuteSurvived = 0.1f;
 
     [Header("References")]
+    public IntVariable SessionsSurvivalPoints;
     public IntVariable SessionsScore;
     public IntVariable HighScore;
     public IntVariable SurvivalPoints;
+    public FloatVariable Playtime;
     
     [Header("Events")]
     public GameEvent OnChangeScoreEvent;
-    public GameEvent OnNormalZobieDieEvent;
+    public GameEvent OnDisplaySessionSurvivalPointsEvent;
 
     [Header("Preview")]
     [SerializeField] private float _scoreMultiplier = 0;
@@ -23,10 +25,11 @@ public class ScoreTracker : MonoBehaviour
 
     private void Start()
     {
-        SetScore(0);
+        SetSessionScore(0);
+        SessionsSurvivalPoints.Value = 0;
     }
 
-    private void SetScore(int value)
+    private void SetSessionScore(int value)
     {
         SessionsScore.Value = value;
         OnChangeScoreEvent.Raise();
@@ -45,17 +48,19 @@ public class ScoreTracker : MonoBehaviour
 
     private void SetScoreMultiplier()
     {
-        _scoreMultiplier = 1 + (int)(SessionsScore.Value / 60 * ScoreMultiplierPerMinuteSurvived);
+        _scoreMultiplier = 1 + (ScoreMultiplierPerMinuteSurvived * (int)(Playtime.Value / 60));
     }
 
     public void SetSurvivalPoints()
     {
         SetScoreMultiplier();
-        SetScore((int)(SessionsScore.Value * _scoreMultiplier));
-        SurvivalPoints.Value = CalculateSurvivalPoints();
+        SetSessionScore((int)(SessionsScore.Value * _scoreMultiplier));
+        SessionsSurvivalPoints.Value = CalculateSurvivalPoints();
+        SurvivalPoints.Value += SessionsSurvivalPoints.Value;
         if (_saveLoadSystem == null)
             _saveLoadSystem = FindObjectOfType<SaveLoadSystem>();
 
+        OnDisplaySessionSurvivalPointsEvent.Raise();
         TrySetNewHighScore();
         _saveLoadSystem.SaveData();
     }

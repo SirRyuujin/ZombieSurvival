@@ -30,16 +30,16 @@ public class LookJoystick : MonoBehaviour
     {
         if (IsDragging)
         {
-            //joystickVec = (lastDragPosition - joystickTouchPos).normalized;
-            //float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
+            joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+            float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
 
-            //if (joystickDist < joystickRadius)
-            //    joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
-            //else
-            //    joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
+            if (joystickDist < joystickRadius)
+                joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+            else
+                joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
 
-            //if (joystickDist >= joystickRadius)
-            //    OnTryFirePrimaryWeaponEvent.Raise();
+            if (joystickDist >= joystickRadius)
+                OnTryFirePrimaryWeaponEvent.Raise();
         }
     }
 
@@ -57,18 +57,18 @@ public class LookJoystick : MonoBehaviour
 
     public void Drag(Vector2 pointerEventData)
     {
-        lastDragPosition = pointerEventData;
-        joystickVec = (lastDragPosition - joystickTouchPos).normalized;
+        //lastDragPosition = pointerEventData;
+        //joystickVec = (lastDragPosition - joystickTouchPos).normalized;
 
-        float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
+        //float joystickDist = Vector2.Distance(lastDragPosition, joystickTouchPos);
 
-        if (joystickDist < joystickRadius)
-            joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
-        else
-            joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
+        //if (joystickDist < joystickRadius)
+        //    joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
+        //else
+        //    joystick.transform.position = joystickTouchPos + joystickVec * joystickRadius;
 
-        if (joystickDist >= joystickRadius)
-            OnTryFirePrimaryWeaponEvent.Raise();
+        //if (joystickDist >= joystickRadius)
+        //    OnTryFirePrimaryWeaponEvent.Raise();
     }
 
     public void PointerUp()
