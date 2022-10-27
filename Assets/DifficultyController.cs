@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class DifficultyController : MonoBehaviour
 {
-    public GameEvent OnStartNewWaveEvent;
+    [Header("Customization")]
     public WaveSettings[] WaveSettings;
-
+    
+    [Header("References")]
+    public GameEvent OnStartNewWaveEvent;
     public IntVariable SettingsID;
     public IntVariable CurrentWaveID;
+
+    [Header("Preview")]
     public float CurrentWaveTimer = 0;
     public float WaveTimer;
 
