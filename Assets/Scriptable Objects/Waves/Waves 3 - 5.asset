@@ -20,3 +20,7 @@ MonoBehaviour:
     Prefab: {fileID: 758419779827678407, guid: 67d1a528f9a39f44bb71a4493ec37ab8, type: 3}
     MinSpawnInterval: 5
     MaxSpawnInterval: 8
+  - EnemyType: {fileID: 11400000, guid: f7918b65f14b03a42ba2422d7a1fd6e1, type: 2}
+    Prefab: {fileID: 758419779827678407, guid: 80c93ab41ea315f4cae53169f1c5e923, type: 3}
+    MinSpawnInterval: 5
+    MaxSpawnInterval: 8

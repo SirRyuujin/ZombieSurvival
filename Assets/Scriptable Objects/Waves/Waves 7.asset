@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f2b4e6bcab55fa4895505d57c73c8ad, type: 3}
-  m_Name: Waves 6
+  m_Name: Waves 7
   m_EditorClassIdentifier: 
-  HighestLevelToCover: 6
+  HighestLevelToCover: 7
   MinWaveDuration: 30
   MaxWaveDuration: 30
   EnemiesToSpawn:
-  - EnemyType: {fileID: 11400000, guid: f7918b65f14b03a42ba2422d7a1fd6e1, type: 2}
-    Prefab: {fileID: 758419779827678407, guid: 80c93ab41ea315f4cae53169f1c5e923, type: 3}
-    MinSpawnInterval: 3
-    MaxSpawnInterval: 5
   - EnemyType: {fileID: 11400000, guid: f7918b65f14b03a42ba2422d7a1fd6e1, type: 2}
     Prefab: {fileID: 758419779827678407, guid: 80c93ab41ea315f4cae53169f1c5e923, type: 3}
     MinSpawnInterval: 3
@@ -28,3 +24,7 @@ MonoBehaviour:
     Prefab: {fileID: 758419779827678407, guid: 79805741a9f6272458ca2c14d2abd01b, type: 3}
     MinSpawnInterval: 10
     MaxSpawnInterval: 16
+  - EnemyType: {fileID: 11400000, guid: 6d36812c609083d40b93393a5e8f61f6, type: 2}
+    Prefab: {fileID: 758419779827678407, guid: 67d1a528f9a39f44bb71a4493ec37ab8, type: 3}
+    MinSpawnInterval: 2
+    MaxSpawnInterval: 4
